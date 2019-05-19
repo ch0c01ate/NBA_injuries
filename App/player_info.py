@@ -49,13 +49,9 @@ class PlayerInfo:
     def get_year_stats(self, year):
         '''
         A method to find player's statistics for given season
-        (self) -> tuple
+        (self, int) -> tuple
         '''
         career_stats = self.get_career_stats()
         for season in career_stats['rowSet']:
             if str(year) in season[1]:
                 return (career_stats['headers'], season)
-
-
-
-
