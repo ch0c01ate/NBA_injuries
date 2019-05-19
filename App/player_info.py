@@ -31,6 +31,10 @@ class PlayerInfo:
         (self) -> list
         '''
         injuries = []
+
+        if not self.id:
+            return injuries
+
         with open('data/injuries.csv') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             for row in csv_reader:
@@ -44,6 +48,8 @@ class PlayerInfo:
         A method to find player's career statistics
         (self) -> dict
         '''
+        if not self.id:
+            return {}
         return json.loads(playercareerstats.PlayerCareerStats(player_id=self.id).get_json())['resultSets'][0]
 
     def get_year_stats(self, year):
@@ -51,6 +57,8 @@ class PlayerInfo:
         A method to find player's statistics for given season
         (self, int) -> tuple
         '''
+        if not self.id:
+            return ()
         career_stats = self.get_career_stats()
         for season in career_stats['rowSet']:
             if str(year) in season[1]:
