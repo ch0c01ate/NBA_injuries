@@ -1,9 +1,9 @@
-from setuptools import setup
+import setuptools
 
-setup(
+setuptools.setup(
     name='NBA_injuries',
     version='0.0.1',
-    packages=[''],
+    packages=setuptools.find_packages(),
     url='https://github.com/ch0c01ate/NBA_injuries',
     license='MIT',
     author='Viacheslav Bernadzikovskyi',

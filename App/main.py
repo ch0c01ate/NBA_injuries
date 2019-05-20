@@ -11,10 +11,12 @@ api_key = 'cvvxw2n26jggmr2py2z8mj26'
 
 
 def display_recent_injuries(label):
-    '''
+    """
     A method to display recent injuries on given label
-    (tkinter.Label) -> None
-    '''
+
+    Args:
+        label(tkinter.Label): Label, where to display
+    """
 
     resp = requests.get(f"https://api.sportradar.us/nba/trial/v5/en/league/injuries.xml?api_key={api_key}")
     parent = ElementTree.fromstring(resp.content)
@@ -32,10 +34,13 @@ def display_recent_injuries(label):
 
 
 def display_career_stats(player_name, label):
-    '''
+    """
     A method to display given player career stats on given label
-    (str, tkinter.Label) -> None
-    '''
+
+    Args:
+        player_name(str): Name of the player
+        label(tkinter.Label): Label, where to display
+    """
 
     player_info = PlayerInfo(player_name)
 
@@ -55,10 +60,14 @@ def display_career_stats(player_name, label):
 
 
 def display_season_stats(player_name, year, label):
-    '''
+    """
     A method to display given player's given season stats on given label
-    (str, str, tkinter.Label) -> None
-    '''
+
+    Args:
+        player_name(str): Name of the player
+        year(str): Year, when the season begins
+        label(tkinter.Label): Label, where to display
+    """
 
     player_info = PlayerInfo(player_name)
 
@@ -80,10 +89,13 @@ def display_season_stats(player_name, year, label):
 
 
 def display_player_injuries(player_name, label):
-    '''
+    """
     A method to display given player's list of injuries on given label
-    (str, tkinter.Label) -> None
-    '''
+
+    Args:
+        player_name(str): Name of the player
+        label(tkinter.Label): Label, where to display
+    """
 
     player_info = PlayerInfo(player_name)
     injuries = player_info.get_injuries()
@@ -103,10 +115,9 @@ def display_player_injuries(player_name, label):
 
 
 def show_welcome_page():
-    '''
+    """
     Hides current page and shows home page
-    None -> None
-    '''
+    """
 
     hide_all_elements()
 
@@ -147,10 +158,9 @@ def show_welcome_page():
 
 
 def show_search_career_stats_page():
-    '''
+    """
     Hides current page and shows page for getting player's career stats
-    None -> None
-    '''
+    """
 
     hide_all_elements()
 
@@ -190,10 +200,9 @@ def show_search_career_stats_page():
 
 
 def show_search_injuries_page():
-    '''
+    """
     Hides current page and shows page for getting player's injuries list.
-    None -> None
-    '''
+    """
 
     hide_all_elements()
 
@@ -233,10 +242,9 @@ def show_search_injuries_page():
 
 
 def show_latest_injuries_page():
-    '''
+    """
     Hides current page and shows page for getting last injuries
-    None -> None
-    '''
+    """
 
     hide_all_elements()
 
@@ -264,10 +272,9 @@ def show_latest_injuries_page():
 
 
 def show_season_stats_page():
-    '''
+    """
     Hides current page and shows page for getting player's season stats
-    None -> None
-    '''
+    """
 
     hide_all_elements()
 
@@ -318,10 +325,9 @@ def show_season_stats_page():
 
 
 def set_background():
-    '''
+    """
     Draws background picture
-    None -> None
-    '''
+    """
 
     background_image = ImageTk.PhotoImage(file='Pictures/background.png')
     background_label = tk.Label(root, image=background_image)
@@ -330,20 +336,18 @@ def set_background():
 
 
 def hide_all_elements():
-    '''
+    """
     Hides all the elements, except background
-    None -> None
-    '''
+    """
 
     for element in elements:
         element.destroy()
 
 
 def check_adt():
-    '''
-    A method to demonstrate posibilities of adt
-    None -> None
-    '''
+    """
+    A method to demonstrate possibilities of adt
+    """
 
     player1 = PlayerInfo('Kyrie Irving')
     print(player1.get_injuries())
@@ -359,10 +363,9 @@ def check_adt():
 
 
 def process_user_input():
-    '''
+    """
     A method to get user input and process it
-    None -> None
-    '''
+    """
 
     player_name = input("Enter player name: ")
     player_info = PlayerInfo(player_name)

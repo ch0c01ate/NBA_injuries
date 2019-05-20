@@ -3,6 +3,11 @@ import json
 
 
 def get_year():
+    """A function to get year from user
+
+    Returns:
+        str: String that describes SeasonID to get season
+    """
     year = input("")
     try:
         year = int(year)
